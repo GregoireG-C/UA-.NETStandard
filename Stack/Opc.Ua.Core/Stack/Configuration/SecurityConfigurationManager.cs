@@ -357,7 +357,7 @@ namespace Opc.Ua.Security
         /// </summary>
         private static object GetObject(Type type, XmlNode element)
         {
-            using (MemoryStream memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(element.InnerXml)))
+            using (MemoryStream memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(element.OuterXml)))
             {
                 XmlDictionaryReader reader = XmlDictionaryReader.CreateTextReader(memoryStream, Encoding.UTF8, new XmlDictionaryReaderQuotas(), null);
                 DataContractSerializer serializer = new DataContractSerializer(type);
